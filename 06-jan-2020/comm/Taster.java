@@ -3,7 +3,7 @@ package comm;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Tester {
+public class Taster {
 
 	public static void main(String[] args) {
 	/*MyArray myArray=new MyArray();
