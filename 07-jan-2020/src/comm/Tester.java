@@ -11,7 +11,8 @@ public class Tester {
 		 * Counter counter4 = new Counter("MyObject-4== "); System.out.printf("%s",
 		 * Counter.displayCount());
 		 */
-		Counter c = new Counter();
+		//Counter c = new Counter();//gives 1000 as output
+		Counter c = new Counter("qwerty");//gives 100 as output
 		Counter.InnerCounter iCounter = c.new InnerCounter();
 		iCounter.add(10, 20);
 		c.displayMAX();

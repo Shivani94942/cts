@@ -21,7 +21,7 @@ public class Counter {
 	}
 	
 
-	//static block is used to initialize static attributes
+	//static block is used to initialize static attributes(count)
 	static {
 		count = 0;
 	}
