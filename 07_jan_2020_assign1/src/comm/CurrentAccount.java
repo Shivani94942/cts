@@ -18,7 +18,7 @@ public class CurrentAccount extends Account {
 	@Override
 	public String display() {
 		
-		return super.display() +" is eligible ??"+ isEligible +"Amount of current account :"+amount;
+		return super.display() +"  is eligible ??  "+ isEligible +"  Amount of current account :"+amount;
 	}
 
 }
