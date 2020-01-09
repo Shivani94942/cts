@@ -14,6 +14,7 @@ public class Tester {
 	public static void main(String[] args) {
 		
 		customerService.addCustomer(123, "john", "doe", "john@adc.com");
+		customerService.addCustomer(123, "john", "doe", "john@adc.com");//not displayed bcz of duplication
 		customerService.addCustomer(145, "virat", "kohli", "kohli@adc.com");
 		Set<Customer> set=customerService.getAllCustomers();
 		System.out.println(set);
