@@ -21,6 +21,9 @@ public class Tester {
 		System.out.println("1. create todo");
 		System.out.println("2. display all todo");
 		System.out.println("3. find todo");
+		System.out.println("4. remove todo");
+		System.out.println("5. remove all todo");
+		
 		System.out.println("0. exit");
 		System.out.print("Enter your choice: ");
 		try {
@@ -50,6 +53,15 @@ public class Tester {
 			else {
 				System.out.println("no such todo available");
 			}
+			break;
+		case 4:
+			
+			System.out.print("provide todo Id: ");
+			tester.service.deleteToDo(scanner.next());
+			break;
+		case 5:
+			tester.service.removeAllToDo();
+			System.out.println("batch remove sucessfull");
 			break;
 		case 0:
 			System.out.println("bye");

@@ -4,8 +4,10 @@ import java.util.List;
 
 public interface ToDoDao {
 
-	public ToDo createToDo(String todoId,String author,String taskNAme);
+	public ToDo createToDo(String todoName,String author,String taskNAme);
 	public List<ToDo> getAllToDos();
-	public ToDo findById(String todoname);
-	public void deleteToDo(String todoId);
+	public ToDo findById(String todoId);
+	public void deleteToDo(String toDoId);
+	public void removeAllToDo();
+	
 }

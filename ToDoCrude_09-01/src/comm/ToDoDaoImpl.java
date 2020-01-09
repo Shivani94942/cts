@@ -14,8 +14,8 @@ public class ToDoDaoImpl implements ToDoDao {
 
 	public ToDo createToDo(String toDoName,String author,String taskName) {
 		String str[]=UUID.randomUUID().toString().split("-");
-		
-		toDo=new ToDo((str[0]+str[1]),toDoName,UUID.randomUUID().toString(),author,taskName);
+		String str1[]=UUID.randomUUID().toString().split("-");
+		toDo=new ToDo((str[0]+str[1]).toLowerCase(),toDoName,(str1[0]+str1[1]).toLowerCase(),author,taskName);
 		toDoList.add(toDo);
 		return toDo;
 		
@@ -36,7 +36,7 @@ public class ToDoDaoImpl implements ToDoDao {
 		while(iterator.hasNext())
 		{
 			toDo=iterator.next();
-			if(toDo.getTodoId()==toDoId)
+			if(toDo.getTodoId().equals(toDoId))
 			{
 				
 				System.out.println(toDo.getTodoId());
@@ -44,7 +44,31 @@ public class ToDoDaoImpl implements ToDoDao {
 			}
 		}
 		return toDo;
-	}	
-	
+	}
 
-}
+	@Override
+	public void deleteToDo(String toDoId) {
+		if(toDoList.isEmpty())
+		{
+			System.out.println("todo list is empty.");
+			
+		}
+		toDo=findById(toDoId);
+		if(toDo==null)
+		{
+			System.out.println("no such todo to delete");
+		}
+		else
+		{
+			toDoList.remove(toDo);
+			System.out.println("remoded sucessfully with id: "+toDoId);
+		}
+		
+	}
+
+	@Override
+	public void removeAllToDo() {
+		toDoList.removeAll(toDoList);
+		
+	}
+	}	
