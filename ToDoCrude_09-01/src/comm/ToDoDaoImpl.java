@@ -71,4 +71,13 @@ public class ToDoDaoImpl implements ToDoDao {
 		toDoList.removeAll(toDoList);
 		
 	}
+
+	@Override
+	public void updateToDo(String toDoId) {
+		toDo=findById(toDoId);
+		
+		
+		
+		
+	}
 	}	

@@ -8,4 +8,5 @@ public interface ToDoService {
 	public ToDo findById(String toDoId);
 	public void deleteToDo(String toDoId);
 	public void removeAllToDo();
+	public void upadateToDo(String toDoId);
 }

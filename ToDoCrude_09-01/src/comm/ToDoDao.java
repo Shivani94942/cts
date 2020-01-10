@@ -9,5 +9,6 @@ public interface ToDoDao {
 	public ToDo findById(String todoId);
 	public void deleteToDo(String toDoId);
 	public void removeAllToDo();
+	public void updateToDo(String toDoId);
 	
 }

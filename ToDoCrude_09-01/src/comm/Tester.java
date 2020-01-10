@@ -23,7 +23,7 @@ public class Tester {
 		System.out.println("3. find todo");
 		System.out.println("4. remove todo");
 		System.out.println("5. remove all todo");
-		
+		System.out.println("6.update todo");
 		System.out.println("0. exit");
 		System.out.print("Enter your choice: ");
 		try {
@@ -62,6 +62,10 @@ public class Tester {
 		case 5:
 			tester.service.removeAllToDo();
 			System.out.println("batch remove sucessfull");
+			break;
+		case 6:
+			tester.service.upadateToDo(scanner.next());
+			System.out.println("Todo is updated.");
 			break;
 		case 0:
 			System.out.println("bye");
