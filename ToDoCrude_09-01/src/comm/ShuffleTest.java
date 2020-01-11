@@ -28,7 +28,7 @@ public class ShuffleTest {
 		l.add(100);
 		l.add(-30);
 		System.out.println(l);
-		int index=Collections.binarySearch(l, -1);
+		int index=Collections.binarySearch(l, 100);
 		if(index>=0)
 		{
 			System.out.println("found "+l.get(index));
