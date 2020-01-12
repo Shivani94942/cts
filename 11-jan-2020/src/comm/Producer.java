@@ -13,9 +13,12 @@ public class Producer extends Thread {
     public void run() {
         for (int i = 0; i < 5; i++) {
             cubbyhole.put(number, i);
+            System.out.println("Consumer [cubbyhole=" + cubbyhole + ", number=" + number + "]");
             try {
                 sleep((int)(Math.random() * 100));
             } catch (InterruptedException e) { }
         }
     }
+
+	
 }

@@ -36,10 +36,12 @@ public class CubbyHole {
         System.out.format("Producer %d put: %d%n", who, contents);
         notifyAll();
     }
-	
+
+
 	@Override
 	public String toString() {
 		return "CubbyHole [contents=" + contents + ", available=" + available + "]";
 	}
-
+	
+	
 }
