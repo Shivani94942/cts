@@ -1,0 +1,43 @@
+package comm.jdbc;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeDAOImpl implements EmployeeDAO {
+
+	private MySqlConnectionFactory factory=null;
+	private Connection connection=null;
+	private Statement statement=null;
+	List<Employee> list=null;
+	
+	{
+		factory = MySqlConnectionFactory.getMyConnectionObject();
+		try {
+			connection = factory.getMyConnection();
+			list = new ArrayList<Employee>();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public List<Employee> getAllEmployees() throws SQLException {
+
+		statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery("select employee_id,first_name,last_name,salary,department_id,email from employees");
+		while (resultSet.next()) {
+
+			list.add(new Employee(resultSet.getInt("employee_id"),
+					resultSet.getString("first_name"),
+					resultSet.getString("last_name"),
+					resultSet.getDouble("salary"),resultSet.getInt("department_id"),resultSet.getString("email")));
+
+		}
+
+		return list;
+	}
+}
