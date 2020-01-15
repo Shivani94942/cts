@@ -1,4 +1,4 @@
-package jdbc_h2_14_01;
+package com.mycompany.jdbcmaven.customer;
 
 import java.io.IOException;
 import java.sql.Connection;
