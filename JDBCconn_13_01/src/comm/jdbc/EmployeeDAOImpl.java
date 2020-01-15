@@ -1,5 +1,6 @@
 package comm.jdbc;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,22 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
+	private MySqlConnectionFactory facctory = null;
+	private Connection connection = null;
+	private Statement statement = null;
+	List<Employee> list = null;
 
-	private MySqlConnectionFactory factory=null;
-	private Connection connection=null;
-	private Statement statement=null;
-	List<Employee> list=null;
-	
 	{
-		factory = MySqlConnectionFactory.getMyConnectionObject();
+		facctory = MySqlConnectionFactory.getMyConnectionObject();
 		try {
-			connection = factory.getMyConnection();
+			connection = facctory.getMyConnection();
+			System.out.println(connection);
 			list = new ArrayList<Employee>();
 		} catch (SQLException e) {
 
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
 	@Override
 	public List<Employee> getAllEmployees() throws SQLException {
 
@@ -40,4 +45,5 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 		return list;
 	}
+
 }
