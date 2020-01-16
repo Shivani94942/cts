@@ -92,9 +92,9 @@ public class CustomerApp {
 				 */
 			
 				  break;
-			case 6:System.out.print(" last name : ");
-			lastName=br.readLine().toString();
-				
+			case 6:
+				System.out.print(" last name : ");			
+				lastName=br.readLine().toString();				
 				list=service.findByName(lastName);
 			if(list.isEmpty())
 			{
