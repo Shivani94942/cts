@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="address" class="com.mycompany.employeedemo.bean.Address">
+  <!--  <constructor-arg name="line1" value="Bangalore"/>
+   <constructor-arg name="line2" value="Karnataka"/>
+   <constructor-arg name="zipCode" value="500456"/>
+   <constructor-arg name="phno" value="576566"/> -->
+   
+    <property name="line1" value="Bangalore"/>
+    <property name="line2" value="Karnataka"/>
+    <property name="zipCode" value="134445"/>
+    <property name="phno" value="56783656"/>
+    
+    </bean>
+    
+    
+   <bean id="employee" class="com.mycompany.employeedemo.bean.Employee" scope="singleton">
+   
+  <!--  <constructor-arg name="eId" value="23456"/>
+   <constructor-arg name="firstName" value="john"/>
+   <constructor-arg name="lastName" value="doe"/>
+   <constructor-arg name="address" ref="address"/> -->
+   
+   <property name="eId" value="4536"/>
+    <property name="firstName" value="john"/>
+    <property name="lastName" value="fdoe"/>
+    <property name="address" ref="address"/>
+  
+   </bean>
+
+</beans>
