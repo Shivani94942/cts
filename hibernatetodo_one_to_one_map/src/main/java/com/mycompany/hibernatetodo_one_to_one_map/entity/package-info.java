@@ -1,0 +1,1 @@
+package com.mycompany.hibernatetodo_one_to_one_map.entity;
