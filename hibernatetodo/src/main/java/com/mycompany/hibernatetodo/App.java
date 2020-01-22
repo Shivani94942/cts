@@ -3,11 +3,11 @@ package com.mycompany.hibernatetodo;
 
 import java.time.LocalDateTime;
 import java.util.List;
-//import java.util.List;
+
 import java.util.UUID;
 
 import org.hibernate.Query;
-//import org.hibernate.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
