@@ -1,0 +1,1 @@
+package com.mycompany.hibernateone_to_one_bi.dao;
