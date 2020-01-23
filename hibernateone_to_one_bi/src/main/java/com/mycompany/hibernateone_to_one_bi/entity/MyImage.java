@@ -66,8 +66,11 @@ public class MyImage {
 	}
 
 
-	/*
-	 * @Override public String toString() { return "MyImage [id=" + id +
-	 * ", imageUrl=" + imageUrl + ", album=" + album + "]"; }
-	 */
+	
+	  @Override 
+	  public String toString() { 
+		  return "MyImage [id=" + id +
+	  ", imageUrl=" + imageUrl +  "]"; 
+		  }
+	 
 }

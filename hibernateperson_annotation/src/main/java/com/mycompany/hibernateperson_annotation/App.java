@@ -67,7 +67,7 @@ public class App
 				 */
 				 Person p2=service.updatePerson(id1);
 				 System.out.println(p2);
-				System.out.println("update sucessfull");
+				 System.out.println("update sucessfull");
 				break;
 			case 5:
 				System.out.println("id : ");

@@ -83,8 +83,10 @@ public class Album {
 	}
 
 
-	/*
-	 * @Override public String toString() { return "Album [id=" + id +
-	 * ", albumName=" + albumName + ", date=" + date + ", image=" + image + "]"; }
-	 */
+	
+	  @Override public String toString() { 
+		  return "Album [id=" + id +
+	  ", albumName=" + albumName + ", date=" + date + ", image=" + image + "]"; 
+		  }
+	 
 }
