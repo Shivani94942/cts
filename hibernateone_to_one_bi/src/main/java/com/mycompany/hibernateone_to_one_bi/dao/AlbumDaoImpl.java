@@ -1,51 +1,72 @@
 package com.mycompany.hibernateone_to_one_bi.dao;
 
-import java.time.LocalDate;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
+import org.hibernate.Transaction;
 import com.mycompany.hibernateone_to_one_bi.entity.Album;
-import com.mycompany.hibernateone_to_one_bi.entity.MyImage;
+
 
 public class AlbumDaoImpl implements AlbumDao {
+	private Session session;
+	private Transaction transaction;
+	private BufferedReader br;
+	{
+		transaction=session.getTransaction();
+		br=new BufferedReader(new InputStreamReader(System.in));
+	}
 
 	@Override
 	public Album createAlbum(Album album) {
-		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Album.class)
-				.addAnnotatedClass(MyImage.class).buildSessionFactory();
-
-		Session session = factory.getCurrentSession();
-		Album tempAlbum = null;
-
 		try {
-
-			Album tempAlbum1 = new Album("songs",LocalDate.now());
-
-			MyImage myimg = new MyImage("https://www.google.com/search?q=image");
-
-			tempAlbum1.setImage(myimg);
-
-			session.beginTransaction();
-
-			System.out.println("Saving the album: " + tempAlbum);
-			session.save(tempAlbum);
-
-			session.getTransaction().commit();
-
-			System.out.println("Done!");
-		} finally {
-			factory.close();
+			
+			transaction.begin();
+			session.save(album);			
+			transaction.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
-		return tempAlbum;
+		return album;
+	}
+	
+	@Override
+	public List<Album> getAllAlbums() {
+		Query query=session.createQuery("from Album");
+		return query.list();
 	}
 
 	@Override
-	public Album deleteAlbum(Album album) {
-		// TODO Auto-generated method stub
-		return null;
+	public Album findById(Integer id) {
+	  Album alb=session.get(Album.class, id);
+		if(alb==null)
+		{
+			System.out.println("not found");
+		}
+		return alb;
 	}
+	@Override
+	public Album deleteAlbum(Integer id) {
+		Album a=session.get(Album.class, id);
+		if(a!=null)
+		{
+			transaction.begin();
+			session.delete(a);
+			transaction.commit();
+			
+		}
+		else
+		{
+			System.out.println("not found");
+		}
+		return a;
+	}
+
+	
+
+	
 
 }

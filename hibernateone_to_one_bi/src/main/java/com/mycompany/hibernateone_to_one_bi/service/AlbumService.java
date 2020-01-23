@@ -1,14 +1,12 @@
-package com.mycompany.hibernateone_to_one_bi.dao;
+package com.mycompany.hibernateone_to_one_bi.service;
 
 import java.util.List;
 
 import com.mycompany.hibernateone_to_one_bi.entity.Album;
 
-public interface AlbumDao {
+public interface AlbumService {
+
 	public Album createAlbum(Album album);
 	public List<Album> getAllAlbums();
-	public Album findById(Integer id);
 	public Album deleteAlbum(Integer id); 
-	
-
 }
