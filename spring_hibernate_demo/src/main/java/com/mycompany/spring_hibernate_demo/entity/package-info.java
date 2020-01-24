@@ -1,0 +1,1 @@
+package com.mycompany.spring_hibernate_demo.entity;
