@@ -12,6 +12,7 @@ import lombok.Setter;
 
 public class CustomerDto {
 
+	private String uId;
 	private String firstName;
 	private String lastName;
 	private String email;

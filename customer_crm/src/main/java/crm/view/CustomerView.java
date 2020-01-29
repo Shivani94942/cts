@@ -30,7 +30,9 @@ public class CustomerView extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
-		Customer c=(Customer) request.getAttribute("SUCCESS");
-		out.println("customer "+c.getFirstName()+"has been added with id"+c.getId());
+		Customer c=(Customer)request.getAttribute("SUCCESS");
+		out.println("<table border='1'><tr><td>Customer ID</td><td>First Name</td><td>Last Name</td><td>Email</td></tr>");
+		out.println("<tr><td>"+c.getUId()+"</td><td>"+c.getFirstName()+"</td><td>"+c.getLastName()+"</td><td>"+c.getEmail()+"</td></tr></table>");
+
 }
 }

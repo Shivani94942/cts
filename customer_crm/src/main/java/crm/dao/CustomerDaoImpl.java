@@ -1,7 +1,9 @@
 package crm.dao;
 
-import javax.persistence.EntityManager;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.hibernate.Session;
 
@@ -28,6 +30,11 @@ public class CustomerDaoImpl implements CustomerDao {
 		entityManager.getTransaction().commit();
 		
 		return customer;
+	}
+	@Override
+	public List<Customer> getAllCustomers() {
+		Query query=entityManager.createQuery("from Customer",Customer.class);
+		return query.getResultList();
 	}
 
 }
