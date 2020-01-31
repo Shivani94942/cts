@@ -38,6 +38,12 @@
 				   onclick="window.location.href='customer-form.jsp'; return false;"
 				   class="add-button"
 			/>
+			</br>
+			
+			<input type="button" value="Search"
+				   onclick="window.location.href='search.jsp'; return false;"
+				   class="add-button"
+			/>
 		
 			<!--  add our html table here -->
 		
