@@ -25,7 +25,7 @@ This is the Home Page of Cd's.
  <h3>CD Administrator</h3>
 
  <ul>
- <li><a href="${pageContext.request.contextPath}/cd/showForm">Add a new CD</a></li>
+ <li><a href="${pageContext.request.contextPath}/user/">Add a new CD</a></li>
  </ul>
 
  </body>
