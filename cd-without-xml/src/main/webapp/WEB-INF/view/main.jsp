@@ -19,7 +19,7 @@ This is the Home Page of Cd's.
 
  <ul>
  <li><a href="#">List all Cd's</a></li>
- <li>Register for booking a cd</li>
+ <li>Register for booking a Cd</li>
  </ul>
 
  <h3>CD Administrator</h3>

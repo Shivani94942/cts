@@ -22,9 +22,9 @@
     <label>Cd Type</label>
     <select class="form-control" name="cdType">
       <option value="Unknown">Select...</option>
-      <option value="International CD">International CD</option>
-      <option value="Special Edition CD">SpecialEdition CD</option>
-      <option value="Normal CD">Normal CD</option>
+      <option value="InternationalCD">International Cd</option>
+      <option value="SpecialEditionCD">SpecialEdition CD</option>
+      <option value="NormalCD">Normal CD</option>
       
     </select>
   </div>
