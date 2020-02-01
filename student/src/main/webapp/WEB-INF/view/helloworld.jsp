@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Hello World</title>
 </head>
 <body>
-Login denied......
+Hello World of Spring!
+
+<br><br>
+
+Student name: ${param.studentName}
+
+<br><br>
+
+The message: ${message}
+
 </body>
 </html>
