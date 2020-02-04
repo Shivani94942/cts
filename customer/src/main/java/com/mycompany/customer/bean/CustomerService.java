@@ -6,7 +6,7 @@ import com.mycompany.customer.bean.Customer;
 
 public interface CustomerService {
 
-	public Customer createCustomer(int customerId,String firstName,String lastName,String email);
+	public Customer createCustomer(String customerId,String firstName,String lastName,String email);
 	public List<Customer> displayAllCustomers();
 
 }

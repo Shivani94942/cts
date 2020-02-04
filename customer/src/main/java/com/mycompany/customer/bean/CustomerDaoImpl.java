@@ -14,7 +14,7 @@ public class CustomerDaoImpl implements CustomerDao
 	Customer customer=null;
 
 	@Override
-	public Customer createCustomer(int customerId,String firstName,String lastName,String email) {
+	public Customer createCustomer(String customerId,String firstName,String lastName,String email) {
 		customer.setCustomerId(customerId);
 		customer.setFirstName(firstName);
 		customer.setLastName(lastName);
@@ -29,5 +29,8 @@ public class CustomerDaoImpl implements CustomerDao
 		list.add(customer);
 		return list;
 	}
+
+
+	
 
 }
