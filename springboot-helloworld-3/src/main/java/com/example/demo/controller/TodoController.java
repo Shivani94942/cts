@@ -7,10 +7,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,7 +72,7 @@ public class TodoController {
 		  return todo;
 	  }
 	  
-	  @PostMapping("/todo")
+	  @PostMapping("/todos")
 	  public Todo createTodo(@RequestBody Todo todo)
 	  {
 		  todo.setId(0);
@@ -79,6 +81,33 @@ public class TodoController {
 		  
 	  }
 
+	  @PutMapping("/todos")
+	  public Todo updateTodo(@RequestBody Todo todo)
+	  {
+		  return todoService.createTodo(todo);
+	  }
+	  
+	  @DeleteMapping("/todos/{id}")
+	  public void deleteTodoById(@PathVariable Integer id)
+	  {
+		  todoService.deleteBookById(id);
+	  }
+	  @DeleteMapping("/todos")
+	  public void deleteAll()
+	  {
+		  todoService.deleteAll();
+	  }
+	  @GetMapping("/todos/findByTodoName/{todoName}")
+	  public List<Todo> findByTodoName(@PathVariable String todoName)
+	  {
+		  return todoService.findByTodoName(todoName);
+	  }
+	  
+	  @DeleteMapping("/todos/deleteByTodoName/{todoName}")
+	  public void deleteByTodoName(@PathVariable String todoName)
+	  {
+		  todoService.deleteByTodoName(todoName);
+	  }
 	  
 	  
 }

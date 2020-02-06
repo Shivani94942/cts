@@ -11,12 +11,16 @@ import javax.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 //import lombok.Getter;
 import lombok.NoArgsConstructor;
 //import lombok.Setter;
+import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Todo {
 	
@@ -31,64 +35,6 @@ public class Todo {
 	@Column(name = "created_date")
 	@JsonIgnore
 	private LocalDateTime createdDate;
-	
-	
-	
-	public Todo(String todoId, String todoName, LocalDateTime createdDate) {
-		super();
-		this.todoId = todoId;
-		this.todoName = todoName;
-		this.createdDate = createdDate;
-	}
-
-
-
-	public String getTodoId() {
-		return todoId;
-	}
-
-
-
-	public void setTodoId(String todoId) {
-		this.todoId = todoId;
-	}
-
-
-
-	public String getTodoName() {
-		return todoName;
-	}
-
-
-
-	public void setTodoName(String todoName) {
-		this.todoName = todoName;
-	}
-
-
-
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
-	}
-
-
-
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
-	}
-
-
-
-	public Integer getId() {
-		return id;
-	}
-
-
-
-	public void setId(Integer id) {
-		this.id = id;
-	}	
-	
 	
 
 }
