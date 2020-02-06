@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-jpa  datasource:    url: jdbc:mysql://localhost:3306/hr
+    username: root
+    password: welcome  jpa:   show-sql: true    

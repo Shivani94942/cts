@@ -11,7 +11,8 @@ public interface TodoService {
 	public Optional<Todo> getTodoById(Integer id);
 	public List<Todo> findByTodoName(String todoName);
 	public Todo createTodo(Todo todo);
-	public void deleteBookById(Integer id);
+	public String deleteTodoById(Integer id);
 	public void deleteByTodoName(String todoName);
 	public void deleteAll();
+	public void deleteByTodoId(String todoId);
 }

@@ -51,9 +51,10 @@ public class TodoServiceImpl implements TodoService {
 	}
 
 	@Override
-	public void deleteBookById(Integer id) {
+	public String deleteTodoById(Integer id) {
 	
 		todoDao.deleteById(id);
+		return null;
 		
 	}
 
@@ -74,6 +75,13 @@ public class TodoServiceImpl implements TodoService {
 	public void deleteByTodoName(String todoName) {
 		// TODO Auto-generated method stub
 		todoDao.deleteByTodoName(todoName);
+		
+	}
+
+	@Override
+	public void deleteByTodoId(String todoId) {
+		// TODO Auto-generated method stub
+		todoDao.deleteByTodoId(todoId);
 		
 	}
 

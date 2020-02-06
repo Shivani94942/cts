@@ -18,5 +18,6 @@ public interface TodoDao extends JpaRepository<Todo, Integer> {
 
 	public List<Todo> findByTodoName(String todoName);
 	public void deleteByTodoName(String todoName);
+	public void deleteByTodoId(String todoId);
 
 }

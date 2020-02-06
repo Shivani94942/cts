@@ -88,9 +88,14 @@ public class TodoController {
 	  }
 	  
 	  @DeleteMapping("/todos/{id}")
-	  public void deleteTodoById(@PathVariable Integer id)
+	  public String deleteTodoById(@PathVariable Integer id)
 	  {
-		  todoService.deleteBookById(id);
+		  String str=todoService.deleteTodoById(id);
+		  if(str==null)
+		  {
+			  throw new TodoNotFoundException("Todo deletion suuceefull with todo id : "+id);
+		  }
+		  return str;
 	  }
 	  @DeleteMapping("/todos")
 	  public void deleteAll()
@@ -107,6 +112,12 @@ public class TodoController {
 	  public void deleteByTodoName(@PathVariable String todoName)
 	  {
 		  todoService.deleteByTodoName(todoName);
+	  }
+	  
+	  @DeleteMapping("/todos/deleteByTodoId/{todoId}")
+	  public void deleteByTodoId(@PathVariable String todoId)
+	  {
+		  todoService.deleteByTodoId(todoId);
 	  }
 	  
 	  
