@@ -41,8 +41,11 @@ public class ItemServiceImpl implements ItemService{
 
 	@Override
 	public void deleteByItemId(String itemId) {
-		// TODO Auto-generated method stub
+		
 		itemRepository.deleteById(itemId);
+		
+		
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -50,6 +53,25 @@ public class ItemServiceImpl implements ItemService{
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		itemRepository.deleteAll();
+	}
+
+	@Override
+	public void deleteItemByItemName(String itemName) {
+		itemRepository.deleteItemByItemName(itemName);
+	}
+
+	@Override
+	public void deleteItemByItemNameAndItemId(String itemName, String itemId) {
+		// TODO Auto-generated method stub
+		itemRepository.deleteItemByItemNameAndItemId(itemName, itemId);
+		
+	}
+
+	@Override
+	public void deleteItemByItemNameAndItemPrice(String itemName, double itemPrice) {
+		// TODO Auto-generated method stub
+		itemRepository.deleteItemByItemNameAndItemPrice(itemName, itemPrice);
+		
 	}
 
 	

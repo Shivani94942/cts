@@ -15,5 +15,8 @@ public interface ItemRepository  extends MongoRepository<Item, String>{
 	
 	public Optional<Item> getItemByItemId(String itemId);
 	public void deleteItemByItemId(String itemId);
+	public void deleteItemByItemName(String itemName);
+	public void deleteItemByItemNameAndItemId(String itemName, String itemId);
+	public void deleteItemByItemNameAndItemPrice(String itemName, double itemPrice);
 
 }

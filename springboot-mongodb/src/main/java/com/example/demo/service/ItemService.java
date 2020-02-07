@@ -12,5 +12,8 @@ public interface ItemService {
 	 public Optional<Item> getItemByItemId(String itemId);
 	 public void deleteByItemId(String itemId);
 	 public void deleteAll();
+	 public void deleteItemByItemName(String itemName);
+	 public void deleteItemByItemNameAndItemId(String itemName,String itemId);
+	public void deleteItemByItemNameAndItemPrice(String itemName, double itemPrice);
 	
 }
