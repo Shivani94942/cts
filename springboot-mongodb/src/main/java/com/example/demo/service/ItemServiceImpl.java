@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.Item;
+import com.example.demo.entity.Product;
 import com.example.demo.repository.ItemRepository;
 
 @Service
@@ -23,6 +26,13 @@ public class ItemServiceImpl implements ItemService{
 	@Transactional
 	public Item create(Item item) {
 		
+		item.setDate(LocalDateTime.now());
+		String str[]=UUID.randomUUID().toString().split("-");
+		Product product=new Product();
+		product.setProductId(str[0]);
+		product.setBrand(product.getBrand());
+		product.setCatagory(product.getCatagory());
+		item.setProduct(product);
 		return itemRepository.save(item);
 	}
 
@@ -53,6 +63,7 @@ public class ItemServiceImpl implements ItemService{
 	public void deleteAll() {
 		// TODO Auto-generated method stub
 		itemRepository.deleteAll();
+		
 	}
 
 	@Override

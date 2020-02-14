@@ -98,6 +98,7 @@ public class ItemRestController {
 	public void deleteAll()
 	{
 		itemService.deleteAll();
+		System.out.println("All items are deleted...");
 	}
 	@DeleteMapping("/items/deleteByItemName/{itemName}")
 	public void deleteItemByItemName(@PathVariable String itemName)

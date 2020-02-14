@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(sessionStorage.counter !=null)
+        {
+            sessionStorage.counter =Number(sessionStorage.counter)+1
+        }
+        else{
+            sessionStorage.counter=1;
+        }
+        document.write(sessionStorage.counter);
+    </script>
+    <h1>Refresh the page to see counter value</h1>
+    <p>close and open browser and check counter value</p>
+</body>
+</html>

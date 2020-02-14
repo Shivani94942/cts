@@ -1,21 +1,29 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
-@ToString(exclude = {"BRAND","CATAGORY"})
+@ToString(exclude = "productId")
 public class Product {
-	
+	@JsonIgnore
 	private String productId;
 	
-	private enum BRAND{ SONY,LG,SAMSANG,NOKIA,DELL};
+	private String brand;
 	
-	private enum CATAGORY{TV,MOBILE,COMPUTOR,LAPTOP};
+	private String catagory;
 	
 
+	
 }

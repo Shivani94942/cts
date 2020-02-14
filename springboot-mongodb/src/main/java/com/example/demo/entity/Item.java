@@ -26,5 +26,14 @@ public class Item {
 	private LocalDateTime date;
 	private Product product;
 	
+	public Item(String itemName, double itemPrice, Product product) {
+		super();
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
+		this.product = product;
+	}
+	
+	
+	
 
 }
