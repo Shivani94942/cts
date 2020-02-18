@@ -1,0 +1,23 @@
+<app-employee></app-employee>
+<app-emp-list></app-emp-list>
+
+<h1>{{name|uppercase}}</h1>
+<h1>{{name|lowercase}}</h1>
+<h1>{{name|titlecase}}</h1>
+<br>
+<h1>{{person|json}}</h1>
+<br>
+<h1>{{.50|percent}}</h1>
+<h1>{{100| currency}}</h1>
+<h1>{{100| currency:'INR'}}</h1>
+<h1>{{100| currency :'INR':'code'}}</h1>
+<h1>{{100| currency:'GBP'}}</h1>
+<br>
+<h1>{{ currentDate }}</h1>
+<h1>{{ currentDate| date: 'shortDate' }}</h1>
+<h1>{{ currentDate| date: 'longDate' }}</h1>
+<h1>{{ currentDate| date: 'longTime' }}</h1>
+<br>
+<h1>{{ 123.123| number: '2.1-2' }}</h1>
+<h1>{{ 123.123| number: '5.3-4' }}</h1>
+<h1>{{ 123.123| number: '1.4-5' }}</h1>

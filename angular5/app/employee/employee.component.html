@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>EmpId</th>
+                <th>EmpName</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>Date of Birth</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name|titlecase| title : employee.gender}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.salary|currency}}</td>
+                <td>{{employee.dateOfBirth|date:'longDate'}}</td>
+            </tr>
+        </thead>
+    </table>
+</div>

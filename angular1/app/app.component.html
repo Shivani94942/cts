@@ -1,0 +1,30 @@
+
+
+<div class="container">
+  <h1>Employee List</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr style="background-color:wheat ;">
+        <th>#</th>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>EmpAge</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let employee of employees;
+                  index as i;
+                  odd as o;
+                  even as e;
+                  first as f;
+                  last as l"
+      [style.background]="o ? 'teal':'turquoise'">
+         <td>{{i}}-{{o}}-{{e}}</td>
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.age}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
