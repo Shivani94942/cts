@@ -11,9 +11,15 @@ public interface UserService {
 	
 	public List<User> getAllUsers();
 	
-	public Optional<User> findById(Integer userId);
+	public Optional<User> findById(String userId);
 	
-	public void deleteUser(Integer userId);
+	public void deleteUser(String userId);
+	
+	public void deleteAll();
+	
+	public Optional<User> findByEmail(String email);
+	
+	public Optional<User> findByName(String name);
 	
 
 }

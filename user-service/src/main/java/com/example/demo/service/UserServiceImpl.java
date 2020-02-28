@@ -37,15 +37,33 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> findById(Integer userId) {
+	public Optional<User> findById(String userId) {
 		
 		return userDao.findById(userId);
 	}
 
 	@Override
-	public void deleteUser(Integer userId) {
+	public void deleteUser(String userId) {
 
 			userDao.deleteById(userId);;
+	}
+
+	@Override
+	public void deleteAll() {
+		userDao.deleteAll();
+		
+	}
+
+	@Override
+	public Optional<User> findByEmail(String email) {
+		
+		return userDao.findByEmail(email);
+	}
+
+	@Override
+	public Optional<User> findByName(String name) {
+		// TODO Auto-generated method stub
+		return userDao.findByName(name);
 	}
 
 }

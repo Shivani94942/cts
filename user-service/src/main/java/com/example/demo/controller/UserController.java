@@ -41,7 +41,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/users/{userId}")
-	public Optional<User> findById(@PathVariable Integer userId){
+	public Optional<User> findById(@PathVariable String userId){
 		
 		return userService.findById(userId);
 	}
@@ -53,9 +53,27 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/users/{userId}")
-	public void deleteUser(@PathVariable Integer userId) {
+	public void deleteUser(@PathVariable String userId) {
 		
 		userService.deleteUser(userId);
+		System.out.println("Delete By Id Successful");
 	}
 
+	@DeleteMapping("/users")
+	public void deleteAll() {
+		userService.deleteAll();
+		System.out.println("Delete All Successful");
+	}
+	
+	@GetMapping("/users/findByEmail/{email}")
+	public Optional<User> findByEmail(@PathVariable String email)
+	{
+		return userService.findByEmail(email);
+	}
+	
+	@GetMapping("/users/findByName/{name}")
+	public Optional<User> findByName(@PathVariable String name)
+	{
+		return userService.findByName(name);
+	}
 }
