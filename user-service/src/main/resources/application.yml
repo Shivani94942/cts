@@ -4,7 +4,7 @@ server:
 spring:  application:    name: user-service
     
   data:
-    mongodb:      database: user      port: 27017
+    mongodb:      database: demo-database      port: 27017
       host: localhost
       
   main:    allow-bean-definition-overriding: true      

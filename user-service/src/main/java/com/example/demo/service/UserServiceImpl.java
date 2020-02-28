@@ -37,15 +37,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> findById(String userId) {
+	public Optional<User> findById(String id) {
 		
-		return userDao.findById(userId);
+		return userDao.findById(id);
 	}
 
 	@Override
-	public void deleteUser(String userId) {
+	public void deleteUser(String id) {
 
-			userDao.deleteById(userId);;
+			userDao.deleteById(id);;
 	}
 
 	@Override

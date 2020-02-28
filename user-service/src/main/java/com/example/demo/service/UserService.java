@@ -11,9 +11,9 @@ public interface UserService {
 	
 	public List<User> getAllUsers();
 	
-	public Optional<User> findById(String userId);
+	public Optional<User> findById(String id);
 	
-	public void deleteUser(String userId);
+	public void deleteUser(String id);
 	
 	public void deleteAll();
 	
