@@ -8,13 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import com.mycompany.jdbcmaven.customer.MyConnectionFactory;
+
+
 
 public class CustomerDAOImpl implements CustomerDAO {
 
-	static Logger logger=Logger.getLogger("com.mycompany.jdbcmaven.customer.CustomerDAOImpl");
 	private MyConnectionFactory factory=null;
 	private Connection connection=null;
 	PreparedStatement pStatement=null;
@@ -27,23 +25,20 @@ public class CustomerDAOImpl implements CustomerDAO {
 		try {
 			connection=factory.getMyConnection();
 			list = new ArrayList<Customer>();
-			logger.info("ok");
 		} catch (IOException | SQLException e) {
 			
-			
-			logger.log(Level.WARNING, e.toString());
+			e.printStackTrace();
 		}
 	}
 	@Override
-	public Customer createCustomer(String firstName, String lastName, String email,String uId) throws SQLException {
-		customer=new Customer(firstName, lastName, email,uId);
+	public Customer createCustomer(String firstName, String lastName, String email) throws SQLException {
+		customer=new Customer(firstName, lastName, email);
 		pStatement=connection.prepareStatement("insert into "
-				+ "customer(first_name,last_name,email,uId) "
-				+ "values(?,?,?,?)");
+				+ "customer(first_name,last_name,email) "
+				+ "values(?,?,?)");
 		pStatement.setString(1, customer.getFirstName());
 		pStatement.setString(2, customer.getLastName());
 		pStatement.setString(3, customer.getEmail());
-		pStatement.setString(4, customer.getUId());
 		pStatement.executeUpdate();
 		return customer;
 	}
@@ -51,83 +46,49 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public List<Customer> displayAllCustomers() throws SQLException {
 		
 		statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("select first_name,last_name,email,uId from customer");
+		ResultSet resultSet = statement.executeQuery("select first_name,last_name,email from customer");
 		while (resultSet.next()) {
 
 			list.add(new Customer(resultSet.getString("first_name"),
 					resultSet.getString("last_name"),
-					resultSet.getString("email"),
-					resultSet.getString("uId")));
+					resultSet.getString("email")));
 
 		}
 
 		return list;
 	}
 	@Override
-	public List<Customer> findById(String uId) throws SQLException {
-		pStatement=connection.prepareStatement("select first_name,"
-				+ "last_name,email,uId from"
-				+ " customer where uId=?");
-		pStatement.setString(1, uId);
-		ResultSet rSet=pStatement.executeQuery();
-		List<Customer> list=new ArrayList<Customer>();
-		while(rSet.next())
-		{
-			Customer customer=new Customer(
-					rSet.getString("first_name"), rSet.getString("last_name"), 
-					rSet.getString("email"),rSet.getString("uId"));
-			list.add(customer);
+	public List<Customer> findById() throws SQLException {
+		statement=connection.createStatement();
+		ResultSet resultSet1 = statement.executeQuery("select first_name,last_name,email from customer where customer_id=2");
+		while (resultSet1.next()) {
+
+			list.add(new Customer(resultSet1.getString("first_name"),
+					resultSet1.getString("last_name"),
+					resultSet1.getString("email")));
+
 		}
 		return list;
 
 	}
 	@Override
-	public Customer updateCustomer(String firstName, String lastName, String email,String uId) throws SQLException {
-		customer=new Customer(firstName, lastName, email,uId);
+	public Customer updateCustomer(String firstName, String lastName, String email) throws SQLException {
+		customer=new Customer(firstName, lastName, email);
 		pStatement=connection.prepareStatement("UPDATE customer\r\n" + 
-				"SET (first_name,last_name,email)=values(?,?,?)\r\n" + 
-				"WHERE uId= ?;");
+				"SET (first_name,email)=values(?,?)\r\n" + 
+				"WHERE customer_id = 2;");
 		
 		  pStatement.setString(1, customer.getFirstName()); 
-		  pStatement.setString(2,customer.getLastName());
-		  pStatement.setString(3, customer.getEmail());
-		  pStatement.setString(4, customer.getFirstName());
+		  //pStatement.setString(2,customer.getLastName());
+		  pStatement.setString(2, customer.getEmail());
 		pStatement.executeUpdate();
 		return customer;
 		
 	}
 	@Override
-	public String deleteCustomer(String uId) throws SQLException {
-		pStatement=connection.prepareStatement("delete from customer where uId=?");
-		pStatement.setString(1, uId);
-		
-		/*
-		 * ResultSet rSet=pStatement.executeQuery(); List<Customer> list=new
-		 * ArrayList<Customer>(); while(rSet.next()) { Customer customer=new Customer(
-		 * rSet.getString("first_name"), rSet.getString("last_name"),
-		 * rSet.getString("email"),rSet.getString("uId")); list.add(customer); }
-		 */
-		
-		pStatement.executeUpdate();
-		return uId;
-
-	}
-	public List<Customer> findByName(String lastName) throws SQLException {
-		pStatement=connection.prepareStatement("select first_name,"
-				+ "last_name,email,uId from"
-				+ " customer where last_name=?");
-		pStatement.setString(1, lastName);
-		ResultSet rSet=pStatement.executeQuery();
-		List<Customer> list=new ArrayList<Customer>();
-		while(rSet.next())
-		{
-			Customer customer=new Customer(
-					rSet.getString("first_name"), rSet.getString("last_name"), 
-					rSet.getString("email"),rSet.getString("uId"));
-			list.add(customer);
-		}
-		return list;
-
+	public Customer deleteCustomer() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
